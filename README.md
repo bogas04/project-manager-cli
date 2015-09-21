@@ -6,6 +6,8 @@ Though it doesn't really do anything better, I just wanted something to play wit
 
 However, the project does benefit from being a NodeJS module, ***multiplatform support***.
 
+Note: Node 4.0.0 or higher needed, as the code is written in ES2015
+
 Setup
 ==
 Currently the dev isn't cool enough to know how to do symlinks via npm, but for now you can put this in your .bashrc / .bash_profile
