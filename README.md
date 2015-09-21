@@ -9,10 +9,10 @@ However, the project does benefit from being a NodeJS module, ***multiplatform s
 Usage
 ==
 ```bash
-node prm ls 
-node prm add <project-name> <location> 
-node prm rm <project-name>
-cd $(node prm <project-name>)
+node index ls 
+node index add <project-name> <location> 
+node index rm <project-name>
+cd $(node index <project-name>)
 ```
 Credits
 ==
