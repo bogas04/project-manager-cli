@@ -1,6 +1,6 @@
 {
   "name": "node-prm",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Project manager written in NodeJS",
   "main": "index.js",
   "scripts": {
