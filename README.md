@@ -8,11 +8,11 @@ However, the project does benefit from being a NodeJS module, ***multiplatform s
 
 Note: Node 4.0.0 or higher needed, as the code is written in ES2015
 
-Setup
+Installation
 ==
-Currently the dev isn't cool enough to know how to do symlinks via npm, but for now you can put this in your .bashrc / .bash_profile
+Make sure you have Node 4.0.0 (at least) installed and npm installed.
 ```bash
-alias prm='node ~/path/to/prm/index.js'
+npm i node-prm -g
 ```
 
 Usage
