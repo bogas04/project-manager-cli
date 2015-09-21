@@ -1,8 +1,11 @@
 const fs = require('fs-promise');
+const col = require('cli-color');
 const file = __dirname + '/projects.json';
 const b2j = (buff) => JSON.parse(buff);
 const j2b = (json) => JSON.stringify(json);
+const nSpaces = (n) => n === 0 ? '' : (' ' + nSpaces(n - 1));
 const Project = require('./Project.class');
+
 const usage = `Usage: 
 node prm ls 
 node prm add <project-name> <location> 
@@ -12,7 +15,11 @@ cd $(node prm <project-name>)`;
 var prm = {
   ls: () => { 
     fs.readFile(file, 'utf-8')
-    .then((buff) => b2j(buff).map((project) => console.log(project.name, project.location)))
+    .then((buff) => {
+      const projects = b2j(buff);
+      const maxLength = Math.max.apply(null, projects.map((p) => p.name.length));
+      projects.map((project) => console.log(col.red(project.name) + nSpaces(maxLength - project.name.length), '@', col.yellow.bgBlack(project.location)));
+    })
     .catch((err) => console.log(err));
   },
   add: (projectName, location) => {

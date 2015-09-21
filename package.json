@@ -1,6 +1,6 @@
 {
   "name": "node-prm",
-  "version": "1.5.0",
+  "version": "1.5.5",
   "description": "Project manager written in NodeJS",
   "main": "index.js",
   "bin": {
@@ -17,6 +17,7 @@
   "author": "bogas04",
   "license": "MIT",
   "dependencies": {
+    "cli-color": "^1.0.0",
     "fs-promise": "^0.3.1"
   },
   "devDependencies": {},
