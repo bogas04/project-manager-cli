@@ -20,7 +20,7 @@ Usage
 List all projects
 
 ```bash
-prm ls 
+prm ls|list
 ```
 
 Add new project
@@ -31,7 +31,7 @@ prm add <project-name> <location>
 Remove existing project
 
 ```bash
-prm rm <project-name>
+prm rm|remove <project-name>
 ```
 
 Open existing project
@@ -48,3 +48,7 @@ cd $(prm <project-name>)
 Credits
 ==
 Thanks to [eivind88/prm](https://github.com/eivind88/prm) for the idea
+
+License
+==
+MIT
