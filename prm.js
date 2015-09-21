@@ -61,9 +61,9 @@ var prm = {
         fs.writeFileSync(file, '[]');
       }
       switch(args[2]) {
-        case 'ls': prm.ls(); break;
+        case 'list': case 'ls': prm.ls(); break;
         case 'add': prm.add(args[3], args[4]); break;
-        case 'rm': prm.rm(args[3]); break;
+        case 'remove': case 'rm': prm.rm(args[3]); break;
         default: prm.cd(args[2]); break;
       }
     }
