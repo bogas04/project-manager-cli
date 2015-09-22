@@ -25,7 +25,7 @@ var prm = {};
 const Project = require('./Project.class');
 const printError = (err) => console.log(err);
 const p2s = (p, m) => console.log(col.red(p.name) + nSpaces(m - p.name.length) + ' @ ' + col.yellow.bgBlack(p.location));
-const usage = 'Usage:\n node prm ls\n node prm add <project-name> <location>\n node prm rm <project-name>\n cd $(node prm <project-name>)';
+const usage = 'Usage:\n prm ls|list\n prm rm|remove <project-name>\n prm add <project-name> <location>\n cd $(prm <project-name>)|`prm <project-name>`';
 
 prm.ls = () => readJSON(file)
 .then((projects) => {
