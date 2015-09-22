@@ -1,6 +1,6 @@
 {
   "name": "node-pmc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Project manager CLI written in NodeJS",
   "main": "index.js",
   "bin": {
