@@ -1,2 +1,2 @@
 #! /usr/bin/env node
-require('./prm').init(process.argv);
+require('./index').init(process.argv);
