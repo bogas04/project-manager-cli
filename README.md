@@ -15,6 +15,14 @@ Make sure you have Node 4.0.0 (at least) installed and npm installed.
 npm i node-prm -g
 ```
 
+Setup
+==
+Since a node process can only change working directory of its child process, 
+in order to cd into your project, you will need to add an alias to your bash_rc, bash_profile like the following:
+```bash
+prm-cd () { cd `prm $1`; }
+```
+
 Usage
 ==
 List all projects
@@ -35,7 +43,11 @@ prm rm|remove <project-name>
 ```
 
 Open existing project
-
+If you have added an [alias](#setup)
+```bash
+prm-cd <project-name>
+```
+Else
 ```bash
 cd `prm <project-name>`
 ```
