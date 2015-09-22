@@ -8,6 +8,8 @@ However, the project does benefit from being a NodeJS module, ***multiplatform s
 
 Note: Node 4.0.0 or higher needed, as the code is written in ES2015
 
+![Screencast](/assets/screencast.gif)
+
 Installation
 ==
 Make sure you have Node 4.0.0 (at least) installed and npm installed.
