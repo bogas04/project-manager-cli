@@ -1,7 +1,7 @@
 {
-  "name": "node-prm",
-  "version": "1.6.0",
-  "description": "Project manager written in NodeJS",
+  "name": "node-pmc",
+  "version": "1.0.0",
+  "description": "Project manager CLI written in NodeJS",
   "main": "index.js",
   "bin": {
     "prm": "./cli.js"
@@ -12,7 +12,7 @@
   "keywords": [
     "project",
     "manager",
-    "prm"
+    "pmc"
   ],
   "author": "bogas04",
   "license": "MIT",
@@ -24,10 +24,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bogas04/prm.git"
+    "url": "git+https://github.com/bogas04/project-manager-cli.git"
   },
   "bugs": {
-    "url": "https://github.com/bogas04/prm/issues"
+    "url": "https://github.com/bogas04/project-manager-cli/issues"
   },
-  "homepage": "https://github.com/bogas04/prm#readme"
+  "homepage": "https://github.com/bogas04/project-manager-cli#readme"
 }

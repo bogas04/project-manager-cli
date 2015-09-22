@@ -10,7 +10,7 @@ const writeJSON = require('write-json-file');
  *************/
 const col = require('cli-color');
 const userHome = process.env.HOME || process.env.USERPROFILE;
-const file = userHome + '/' + (process.env.USERPROFILE ? '_' : '.') + 'prm.projects.json';
+const file = userHome + '/' + (process.env.USERPROFILE ? '_' : '.') + 'pmc.projects.json';
 
 /********************
   Functional stuff  
@@ -21,46 +21,46 @@ const nSpaces = (n) => keepDoing((a, b) => a + b, ' ', n, ''); // Crazy as it so
 /************
   PRM stuff 
  ************/
-var prm = {};
+var pmc = {};
 const Project = require('./Project.class');
 const printError = (err) => console.log(err);
 const p2s = (p, m) => console.log(col.red(p.name) + nSpaces(m - p.name.length) + ' @ ' + col.yellow.bgBlack(p.location));
-const usage = 'Usage:\n prm ls|list\n prm rm|remove <project-name>\n prm add <project-name> <location>\n cd $(prm <project-name>)|`prm <project-name>`';
+const usage = 'Usage:\n pmc ls|list\n pmc rm|remove <project-name>\n pmc add <project-name> <location>\n cd $(pmc <project-name>)|`pmc <project-name>`';
 
-prm.ls = () => readJSON(file)
+pmc.ls = () => readJSON(file)
 .then((projects) => {
   const maxLen = Math.max.apply(null, projects.map((p) => p.name.length));
   projects.map((project) => p2s(project, maxLen))
 })
 .catch(printError);
 
-prm.add = (projectName, location) => readJSON(file)
+pmc.add = (projectName, location) => readJSON(file)
 .then(
   (projects) => writeJSON(file, projects.concat(new Project(projectName, location).toJSON()))
-  .then(prm.ls).catch(printError)
+  .then(pmc.ls).catch(printError)
 )
 .catch(printError);
 
-prm.rm = (projectName) => readJSON(file)
+pmc.rm = (projectName) => readJSON(file)
 .then(
   (projects) => writeJSON(file, projects.filter((p) => p.name !== projectName))
-  .then(prm.ls).catch(printError)
+  .then(pmc.ls).catch(printError)
 )
 .catch(printError);
 
-prm.cd = (projectName) => readJSON(file)
+pmc.cd = (projectName) => readJSON(file)
 .then((projects) => {
   const project = projects.filter((p) => p.name === projectName);
   if(project.length !== 1) {
     console.log(projectName + " project not found." + '\n' + usage);
-    prm.ls();
+    pmc.ls();
   } else {
     console.log(project[0].location);
   }
 })
 .catch(printError);
 
-prm.init = (args) => {
+pmc.init = (args) => {
   if (args.length < 3 || (args.length === 4 && args[2] === 'add')) {
     console.log(usage);
     process.exit(0);
@@ -71,12 +71,12 @@ prm.init = (args) => {
       fs.writeFileSync(file, '[]');
     }
     switch(args[2]) {
-      case 'list': case 'ls': prm.ls(); break;
-      case 'add': prm.add(args[3], args[4]); break;
-      case 'remove': case 'rm': prm.rm(args[3]); break;
-      default: prm.cd(args[2]); break;
+      case 'list': case 'ls': pmc.ls(); break;
+      case 'add': pmc.add(args[3], args[4]); break;
+      case 'remove': case 'rm': pmc.rm(args[3]); break;
+      default: pmc.cd(args[2]); break;
     }
   }
 };
 
-module.exports = prm;
+module.exports = pmc;
