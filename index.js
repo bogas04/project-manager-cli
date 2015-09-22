@@ -1,6 +1,7 @@
 const fs = require('fs-promise');
 const col = require('cli-color');
-const file = '~/.prm.projects.json';
+const userHome = (() => process.env.HOME || process.env.USERPROFILE)();
+const file = userHome + '/.prm.projects.json';
 const b2j = (buff) => JSON.parse(buff);
 const j2b = (json) => JSON.stringify(json);
 const nSpaces = (n) => n === 0 ? '' : (' ' + nSpaces(n - 1));
