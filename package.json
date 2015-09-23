@@ -1,10 +1,10 @@
 {
   "name": "node-pmc",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Project manager CLI written in NodeJS",
   "main": "index.js",
   "bin": {
-    "prm": "./cli.js"
+    "pmc": "./cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
