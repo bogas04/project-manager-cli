@@ -25,7 +25,7 @@ var pmc = {};
 const Project = require('./Project.class');
 const printError = err => console.log(col.white.bgLightRed(err));
 const p2s = (p, m) => console.log(col.red(p.name), nSpaces(m - p.name.length), '@', col.yellow.bgBlack(p.location.toLowerCase()));
-const usage = 'Usage:\n pmc ls|list\n pmc rm|remove <project-name>\n pmc add <project-name> <location>\n cd $(pmc <project-name>)|`pmc <project-name>';
+const usage = 'Usage:\n pmc ls|list\n pmc rm|remove <project-name>\n pmc add <project-name> <location>\n cd $(pmc <project-name>)|`pmc <project-name>\n $(pmc start <project-name>)\n pmc add-start <project-name> "scripts_to_run"';
 const projectNotFound = p => { console.log(col.red(p), col.blue('project not found.'), '\n', usage); pmc.ls(); }
 
 pmc.ls = () => readJSON(file)
