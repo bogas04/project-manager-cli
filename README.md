@@ -71,7 +71,7 @@ To see start script of a project
 pmc start <project-name>
 ```
 
-Start a project (_NOTE: It will first cd into its directory and then run the scripts_)
+Start a project
 ```bash
 $(pmc start <project-name>)
 ```
