@@ -22,7 +22,9 @@ Setup
 Since a node process can only change working directory of its child process, 
 in order to cd into your project, you will need to add an alias to your bash_rc, bash_profile like the following:
 ```bash
-pmc-cd () { cd `pmc $1`; }
+#pmc
+pmcd () { cd `pmc $1`; }
+pmcs () { cd `pmc $1`; `pmc start $1`; }
 ```
 
 Usage
@@ -59,6 +61,20 @@ or
 cd $(pmc <project-name>)
 ```
 
+Add start script for a project (_NOTE: It overwrites, so you can use it to change or even remove script_)
+```bash
+pmc add-start <project-name> 
+```
+
+To see start script of a project
+```bash
+pmc start <project-name>
+```
+
+Start a project (_NOTE: It will first cd into its directory and then run the scripts_)
+```bash
+$(pmc start <project-name>)
+```
 Credits
 ==
 Thanks to [eivind88/prm](https://github.com/eivind88/prm) for the idea
