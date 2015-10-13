@@ -12,19 +12,13 @@ const col = require('cli-color');
 const userHome = process.env.HOME || process.env.USERPROFILE;
 const file = userHome + '/' + (process.env.USERPROFILE ? '_' : '.') + 'pmc.projects.json';
 
-/********************
-  Functional stuff  
- ********************/
-const keepDoing = (This, For, nTimes, DoThisAtLast) => nTimes <= 0 ? DoThisAtLast : (For + keepDoing(This, For, nTimes - 1, DoThisAtLast));
-const nSpaces = (n) => keepDoing((a, b) => a + b, ' ', n, ''); // Crazy as it sounds, this returns n spaces, functionally
-
 /************
   PRM stuff 
  ************/
 var pmc = {};
 const Project = require('./Project.class');
 const printError = err => console.log(col.white.bgLightRed(err));
-const p2s = (p, m) => console.log(col.red(p.name), nSpaces(m - p.name.length), '@', col.yellow.bgBlack(p.location.toLowerCase()));
+const p2s = (p, m) => console.log(col.red(p.name), ' '.repeat(m - p.name.length), '@', col.yellow.bgBlack(p.location.toLowerCase()));
 const usage = 'Usage:\n pmc ls|list\n pmc rm|remove <project-name>\n pmc add <project-name> <location>\n cd $(pmc <project-name>)|`pmc <project-name>\n $(pmc start <project-name>)\n pmc add-start <project-name> "scripts_to_run"';
 const projectNotFound = p => { console.log(col.red(p), col.blue('project not found.'), '\n', usage); pmc.ls(); }
 
